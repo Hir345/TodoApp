@@ -35,7 +35,7 @@
     </body>
     <footer>
         {{$user->name}}としてログイン中
-        <form method="POST">
+        <form method="POST" action="{{ route('logout') }}">
             @csrf
             <input type="submit" value="ログアウト" class="btn btn-outline-primary btn-block">
         </form>
