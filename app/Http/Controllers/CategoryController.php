@@ -40,12 +40,14 @@ class CategoryController extends Controller
         return redirect('/');
     }*/
 
+    //todo作成ページ
     public function addTodo($id)
     {
         $param = ['category' => Category::find($id)];
         return view('hello.addTodo',$param);
     }
 
+    //todo作成
     public function createTodo(Request $request)
     {
         $this->validate($request,Todo::$rules);
@@ -56,11 +58,13 @@ class CategoryController extends Controller
         return redirect('/board/' . $request->category_id);
     }
 
+    //タスク作成ページ
     public function addCategory()
     {
         return view('hello.addCategory');
     }
 
+    //タスク作成
     public function createCategory(Request $request)
     {
         $this->validate($request,Category::$rules);
@@ -73,12 +77,14 @@ class CategoryController extends Controller
         return redirect('/board');
     }
 
+    //タスク編集ページ
     public function edit($id)
     {
         $param = ['category' => Category::find($id)];
         return view('hello.edit',$param);
     } 
 
+    //タスク編集
     public function update(Request $request)
     {
         $this->validate($request,Category::$rules);
@@ -89,18 +95,21 @@ class CategoryController extends Controller
         return redirect('/board');
     }
 
+    //タスク削除ページ
     public function delete($id)
     {
         $param = ['category' => Category::find($id)];
         return view('hello.del',$param);
     }
 
+    //タスク削除
     public function remove(Request $request)
     {
         Category::find($request->id)->delete();
         return redirect('/board');
     }
 
+    //todo削除
     public function delTodo(Request $request)
     {
         $catId = Todo::find($request->id)->category_id;
