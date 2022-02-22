@@ -24,21 +24,32 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::middleware('auth')->group(function(){
     // ログイン後のトップページ
     Route::get('/board','App\Http\Controllers\CategoryController@index');
+    //ログアウト
     Route::post('/board','App\Http\Controllers\CategoryController@logout');
 
+    //タスクの詳細表示
     Route::get('/board/{id}','App\Http\Controllers\CategoryController@detail');
+    //todoの削除
     Route::post('/board/{id}','App\Http\Controllers\CategoryController@delTodo');
 
+    //タスク作成ページ
     Route::get('/add','App\Http\Controllers\CategoryController@addCategory');
+    //タスクの作成
     Route::post('/add','App\Http\Controllers\CategoryController@createCategory');
 
+    //タスク編集ページ
     Route::get('/board/{id}/edit','App\Http\Controllers\CategoryController@edit');
+    //タスクの編集
     Route::post('/board/{id}/edit','App\Http\Controllers\CategoryController@update');
 
+    //タスク削除ページ
     Route::get('/board/{id}/del','App\Http\Controllers\CategoryController@delete');
+    //タスク削除
     Route::post('/board/{id}/del','App\Http\Controllers\CategoryController@remove');
 
+    //todo作成ページ
     Route::get('/board/{id}/addTodo','App\Http\Controllers\CategoryController@addTodo');
+    //todo作成
     Route::post('/board/{id}/addTodo','App\Http\Controllers\CategoryController@createTodo');
 });
 
