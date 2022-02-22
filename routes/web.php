@@ -22,7 +22,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function(){
-    // ログイン後のトップページaaaa
+    // ログイン後のトップページ
     Route::get('/board','App\Http\Controllers\CategoryController@index');
     //ログアウト
     Route::post('/board','App\Http\Controllers\CategoryController@logout');
