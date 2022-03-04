@@ -22,55 +22,33 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::middleware('auth')->group(function(){
-    // ログイン後のトップページ
     Route::get('/board','App\Http\Controllers\CategoryController@index');
-    //ログアウト
+    // ログイン後のトップページ
     Route::post('/board','App\Http\Controllers\CategoryController@logout');
+    //ログアウト
 
-    //タスクの詳細表示
     Route::get('/board/{id}','App\Http\Controllers\CategoryController@detail');
-    //todoの削除
+    //タスクの詳細表示
     Route::post('/board/{id}','App\Http\Controllers\CategoryController@delTodo');
+    //todoの削除
 
-    //タスク作成ページ
     Route::get('/add','App\Http\Controllers\CategoryController@addCategory');
-    //タスクの作成
+    //タスク作成ページ
     Route::post('/add','App\Http\Controllers\CategoryController@createCategory');
+    //タスクの作成
 
-    //タスク編集ページ
     Route::get('/board/{id}/edit','App\Http\Controllers\CategoryController@edit');
-    //タスクの編集
+    //タスク編集ページ
     Route::post('/board/{id}/edit','App\Http\Controllers\CategoryController@update');
+    //タスクの編集
 
-    //タスク削除ページ
     Route::get('/board/{id}/del','App\Http\Controllers\CategoryController@delete');
-    //タスク削除
+    //タスク削除ページ
     Route::post('/board/{id}/del','App\Http\Controllers\CategoryController@remove');
+    //タスク削除
 
-    //todo作成ページ
     Route::get('/board/{id}/addTodo','App\Http\Controllers\CategoryController@addTodo');
-    //todo作成
+    //todo作成ページ
     Route::post('/board/{id}/addTodo','App\Http\Controllers\CategoryController@createTodo');
+    //todo作成
 });
-
-/*Route::get('/board','App\Http\Controllers\CategoryController@index');
-
-Route::get('/board/{id}','App\Http\Controllers\CategoryController@detail');
-
-Route::post('/board/{id}','App\Http\Controllers\CategoryController@delTodo');
-
-Route::get('/add','App\Http\Controllers\CategoryController@addCategory');
-
-Route::post('/add','App\Http\Controllers\CategoryController@createCategory');
-
-Route::get('/board/{id}/edit','App\Http\Controllers\CategoryController@edit');
-
-Route::post('/board/{id}/edit','App\Http\Controllers\CategoryController@update');
-
-Route::get('/board/{id}/del','App\Http\Controllers\CategoryController@delete');
-
-Route::post('/board/{id}/del','App\Http\Controllers\CategoryController@remove');
-
-Route::get('/board/{id}/addTodo','App\Http\Controllers\CategoryController@addTodo');
-
-Route::post('/board/{id}/addTodo','App\Http\Controllers\CategoryController@createTodo');*/

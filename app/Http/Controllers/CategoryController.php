@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         $user = Auth::user();
         $items = Category::where('user_id' , $user->id)->get();
-        return view('hello.board',['items' => $items , 'user' => $user]);
+        return view('category.board',['items' => $items , 'user' => $user]);
     }
 
     // 詳細表示
@@ -26,7 +26,7 @@ class CategoryController extends Controller
         \Log::debug($category);
         if ($user->id == $category->user_id) {
             $param = ['category' => $category];
-            return view('hello.category',$param);
+            return view('category.category',$param);
         } else {
             return redirect('/');
         }
@@ -44,7 +44,7 @@ class CategoryController extends Controller
     public function addTodo($id)
     {
         $param = ['category' => Category::find($id)];
-        return view('hello.addTodo',$param);
+        return view('category.addTodo',$param);
     }
 
     //todo作成
@@ -61,7 +61,7 @@ class CategoryController extends Controller
     //タスク作成ページ
     public function addCategory()
     {
-        return view('hello.addCategory');
+        return view('category.addCategory');
     }
 
     //タスク作成
@@ -81,7 +81,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $param = ['category' => Category::find($id)];
-        return view('hello.edit',$param);
+        return view('category.edit',$param);
     } 
 
     //タスク編集
@@ -99,7 +99,7 @@ class CategoryController extends Controller
     public function delete($id)
     {
         $param = ['category' => Category::find($id)];
-        return view('hello.del',$param);
+        return view('category.del',$param);
     }
 
     //タスク削除
