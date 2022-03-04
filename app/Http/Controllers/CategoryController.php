@@ -117,3 +117,4 @@ class CategoryController extends Controller
         return redirect('/board/' . $catId);
     }
 }
+//test
