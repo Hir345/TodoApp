@@ -20,9 +20,20 @@ class Category extends Model
     {
         return $this->name .':' . $this->deadline;
     }
+
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getDl()
+    {
+        return $this->deadline;
     }
 
     public function todo()
