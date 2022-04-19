@@ -7,7 +7,7 @@
     <h2>{{$category->getData()}}<a href="/board/{{$category->getId()}}/edit">編集</a> <a href="/board/{{$category->getId()}}/del">削除</a></h2>
     Todo
     <ul>
-        {{--<form action="/board/{{$category->getId()}}" method="post">--}}
+        <form action="/board/{{$category->getId()}}" method="post">
         @csrf
         @foreach ($category->todo as $item)
         <li>
@@ -17,7 +17,7 @@
         </li>
         @endforeach
         <li><a href="/board/{{$category->getId()}}/addTodo">+</a></li>
-        {{--</form>--}}
+        </form>
     </ul>
     <a href="/board">カテゴリ一覧へ戻る</a>
 </body>
