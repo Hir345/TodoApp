@@ -3,7 +3,7 @@
     <title>Category</title>
 </head>
 <body>
-    <h1>カテゴリ詳細</h1>
+    <h1>タスク詳細</h1>
     <h2>{{$category->getData()}}<a href="/board/{{$category->getId()}}/edit">編集</a> <a href="/board/{{$category->getId()}}/del">削除</a></h2>
     Todo
     <ul>
